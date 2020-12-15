@@ -104,4 +104,8 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
 
+KafkaStreamsExercises/testkafkastreams/target
+KafkaStreamsExercises/testkafkastreams/.idea
+KafkaStreamsExercises/testkafkastreams/.idea/**
+KafkaStreamsExercises/testkafkastreams/.idea/*.xml
 # End of https://www.toptal.com/developers/gitignore/api/intellij

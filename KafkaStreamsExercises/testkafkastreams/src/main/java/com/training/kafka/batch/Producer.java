@@ -38,6 +38,7 @@ public class Producer {
             int i = 0;
             while (true) {
                 do {
+                    System.out.println(String.format("Batch: %s || %s sent to the '%s' topic", Integer.toString(numBatch), dtFormat.format(new Date()), topic));
                     producer.send(
                             new ProducerRecord<String, String>(topic,
                                     String.format("Batch: %s || %s", Integer.toString(numBatch), dtFormat.format(new Date())))

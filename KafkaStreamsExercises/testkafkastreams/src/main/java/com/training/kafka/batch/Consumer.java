@@ -37,18 +37,6 @@ public class Consumer {
         // Create the consumer
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(props);
 
-        // Uncomment this block in case you want to restrict the list of partitions
-        // from which our consumer is going to pick messages
-        ArrayList<TopicPartition> partitions = new ArrayList<TopicPartition>();
-        partitions.add(new TopicPartition("producer-consumer", 0));
-        partitions.add(new TopicPartition("producer-consumer", 1));
-        partitions.add(new TopicPartition("producer-consumer", 2));
-        consumer.assign(partitions);
-
-        // Show consumer subscriptions
-        Set<TopicPartition> assignedPartitions = consumer.assignment();
-        printSet(assignedPartitions);
-
         consumer.subscribe(Arrays.asList(topic));
 
         // Infinite loop to poll new records arriving to the topic
@@ -61,18 +49,6 @@ public class Consumer {
             consumer.close();
         }
 
-    }
-
-    private static void printSet(Set<TopicPartition> collection){
-        if (collection.isEmpty()) {
-            System.out.println("Partitions are still unassigned ...");
-        }
-        else {
-            System.out.println("We have these partitions assigned:");
-            for (TopicPartition partition: collection){
-                System.out.println(String.format("Partition %s in topic %s", Integer.toString(partition.partition()), partition.topic()));
-            }
-        }
     }
 
     private static void printRecords(ConsumerRecords<String, String> records)

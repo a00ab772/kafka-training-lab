@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.Set;
 
-public class ConsumidorSSL {
+public class ConsumerSSL {
     public static void main(String[] args){
 
         // Configuración del consumidor de Kafka

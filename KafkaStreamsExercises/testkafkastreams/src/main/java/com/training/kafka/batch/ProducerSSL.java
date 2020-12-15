@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
-public class ProductorSSL {
+public class ProducerSSL {
 
     public static void main(String[] args){
 
