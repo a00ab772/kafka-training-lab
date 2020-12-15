@@ -11,7 +11,7 @@ export CONFLUENT_HOME=~/Downloads/confluent-6.0.0/
 # nc -vz localhost 9093
 # nc -vz localhost 9094
 
-cd ./security/rbac/scripts
+cd ./security/ssl/scripts
 ./run.sh
 
 

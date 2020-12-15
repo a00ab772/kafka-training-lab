@@ -112,3 +112,5 @@ KafkaStreamsExercises/testkafkastreams/.idea/*.xml
 # End of https://www.toptal.com/developers/gitignore/api/intellij
 /security/.idea/
 /.idea/
+/security/.idea/
+/security/.idea/

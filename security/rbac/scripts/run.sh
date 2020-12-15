@@ -42,7 +42,6 @@ sleep 1
 ./init.sh
 
 ./enable-rbac-broker.sh
-
 # ./enable-rbac-schema-registry.sh
 # ./enable-rbac-connect.sh
 # ./enable-rbac-rest-proxy.sh

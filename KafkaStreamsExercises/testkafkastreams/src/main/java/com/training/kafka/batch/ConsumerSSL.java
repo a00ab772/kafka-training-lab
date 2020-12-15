@@ -5,6 +5,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.TopicPartition;
+import org.apache.kafka.common.config.SaslConfigs;
 import org.apache.kafka.common.config.SslConfigs;
 
 import java.util.ArrayList;
@@ -15,18 +16,17 @@ import java.util.Set;
 public class ConsumerSSL {
     public static void main(String[] args){
 
-        // Configuración del consumidor de Kafka
+        // Kafka consumer configuration
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9093");
-        // Si el broker estuviese Kerberizado usaríamos esta configuración
-        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
-        // props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/etc/security/keytabs/ssl_client/kafka.client.truststore.jks");
-        props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/tmp/client.truststore.jks");
-        props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "clientpass");
-        //props.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "/etc/security/keytabs/ssl_client/kafka.client.keystore.jks");
-        props.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "/tmp/kafka.client.keystore.jks");
-        props.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG, "clientpass");
-        props.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "clientpass");
+
+         props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
+         props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/tmp/kafka.client.truststore.jks");
+         props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "test1234");
+         props.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "/tmp/kafka.client.keystore.jks");
+         props.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG, "test1234");
+         props.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "test1234");
+
 
 
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");

@@ -176,5 +176,19 @@
             <version>${slf4j.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/io.confluent/rbac-api-server -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>rbac-api-server</artifactId>
+            <version>6.0.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.confluent/auth-providers -->
+        <dependency>
+            <groupId>io.confluent</groupId>
+            <artifactId>auth-providers</artifactId>
+            <version>6.0.1-ce</version>
+        </dependency>
+
     </dependencies>
 </project>

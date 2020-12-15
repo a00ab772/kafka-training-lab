@@ -3,6 +3,7 @@ package com.training.kafka.batch;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.common.config.SaslConfigs;
 import org.apache.kafka.common.config.SslConfigs;
 
 import java.text.DateFormat;
@@ -14,16 +15,16 @@ public class ProducerSSL {
 
     public static void main(String[] args){
 
-        // Configuración del productor de mensajes en Kafka
+        // Kafka producer configuration
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9093");
-        // Si el broker estuviese Kerberizado usaríamos esta configuración
-        props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
-        props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/etc/security/keytabs/ssl_client/kafka.client.truststore.jks");
-        props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "clientpass");
-        props.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "/etc/security/keytabs/ssl_client/kafka.client.keystore.jks");
-        props.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG, "clientpass");
-        props.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "clientpass");
+
+         props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
+         props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/tmp/kafka.client.truststore.jks");
+         props.put(SslConfigs.SSL_TRUSTSTORE_PASSWORD_CONFIG, "test1234");
+         props.put(SslConfigs.SSL_KEYSTORE_LOCATION_CONFIG, "/tmp/kafka.client.keystore.jks");
+         props.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG, "test1234");
+         props.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "test1234");
 
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
@@ -51,6 +52,7 @@ public class ProducerSSL {
             int i = 0;
             while (true) {
                 do {
+                    System.out.println(String.format("Batch: %s || %s sent to the '%s' topic", Integer.toString(numBatch), dtFormat.format(new Date()), topic));
                     productor.send(
                             new ProducerRecord<String, String>(topic,
                                     String.format("Batch: %s || %s", Integer.toString(numBatch), dtFormat.format(new Date())))

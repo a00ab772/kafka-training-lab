@@ -10,7 +10,7 @@ public class Consumer {
 
         // Kafka consumer configuration properties
         Properties props = new Properties();
-        props.put("bootstrap.servers", "localhost:9093");
+        props.put("bootstrap.servers", "localhost:9092");
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("fetch.min.bytes", 1);
