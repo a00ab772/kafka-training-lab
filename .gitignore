@@ -108,4 +108,5 @@ KafkaStreamsExercises/testkafkastreams/target
 KafkaStreamsExercises/testkafkastreams/.idea
 KafkaStreamsExercises/testkafkastreams/.idea/**
 KafkaStreamsExercises/testkafkastreams/.idea/*.xml
+./.idea/
 # End of https://www.toptal.com/developers/gitignore/api/intellij

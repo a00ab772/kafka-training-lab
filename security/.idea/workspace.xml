@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ad30739f-df2c-476d-b11f-5b537ee68c27" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../ccloud/beginner-cloud/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ccloud/beginner-cloud/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clickstream/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/clickstream-analysis-dashboard.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/clickstream-analysis-dashboard.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/elastic-dynamic-template.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/elastic-dynamic-template.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/ksql-tables-to-grafana.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/ksql-tables-to-grafana.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clickstream/sessionize-data.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/sessionize-data.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../clickstream/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../kubernetes/gke-base/Makefile-impl" beforeDir="false" afterPath="$PROJECT_DIR$/../kubernetes/gke-base/Makefile-impl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../microservices-orders/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../microservices-orders/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multi-datacenter/read-topics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/read-topics.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multi-datacenter/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/start.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2_topic2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2_topic2.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc2_to_dc1.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc2_to_dc1.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../music/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../music/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../music/statements.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../music/statements.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rbac/scripts/enable-rbac-connect.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/enable-rbac-connect.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rbac/scripts/enable-rbac-ksqldb-server.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/enable-rbac-ksqldb-server.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rbac/scripts/enable-rbac-rest-proxy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/enable-rbac-rest-proxy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rbac/scripts/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/secret-protection/demo-secret-protection.sh" beforeDir="false" afterPath="$PROJECT_DIR$/secret-protection/demo-secret-protection.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../utils/helper.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../utils/helper.sh" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1iRVWNU2waj0dvU9cIPMEF1pbAv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../../../../BIGDATA/LIGHTBEND_ACTIVATOR/akka-http-quickstart-scala" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../BIGDATA/LIGHTBEND_ACTIVATOR/akka-quickstart-scala" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../BIGDATA/LIGHTBEND_ACTIVATOR/alpakka" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../BIGDATA/UDEMY_JAVA_SCALA_AND_AKKA_MICROSERVICES_5.5H/Microservices_with_java_scala_and_akka" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../KENMEI/IdeaProjects/call-traces" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../Mistral/2018-08-13 OTD-129. PoC Reactive Microservices communication through Kafka topics using Alpakka/9781788298582-Code" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../ZARTIS/Contacts/contacts" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../ZARTIS/LTJ-P-lightbend-akka-streams-for-java-professional-v1/exercises" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../ZARTIS/LTJ-P-lightbend-akka-streams-for-java-professional-v1/exercises/exercises" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../ZARTIS/LTS-P-lightbend-akka-streams-for-scala-professional-v1/exercises" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../ZARTIS/Play/play-scala-seed" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../../../ZARTIS/akka-streams-lightbend-course-scala/exercises" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A/Users/Arturo/Documents/BIG DATA/VIDEOS/Microservices/PACKT_PUBLISHING_LEARNING_PATH_AKKA_BUILDING_APPLICATIONS_AND_MICROSERVICES_WITH_AKKA_TUTORIAL-OXBRiDGE/SalmaKhaterLearning_Akka" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/Big-Data-Analysis-with-Scala-and-Spark/Week1/example" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/Big-Data-Analysis-with-Scala-and-Spark/Week1/wikipedia" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/bigdata-example" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/coursera-scala-capstone" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/coursera-spark-capstone" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/example" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/functional-programming-in-scala-capstone" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/observatory" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/stackoverflow" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/timeusage" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/BigData-Analysis-with-Scala-and-Spark/wikipedia" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/Functional-Programming-Design-In-Scala/keScala/Principles-of-Reactive-Programming-master/worksheets" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/Functional-Programming-Design-In-Scala/scala-for-the-impatient" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgramDesignInScala_assignments/calculator" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgramDesignInScala_assignments/example" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgramDesignInScala_assignments/quickcheck" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgramDesignInScala_assignments/streams" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgrammingPrinciplesIn Scala/Functional-Programming-Principles-In-Scala/Week 1. Recursion" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgrammingPrinciplesIn Scala/Functional-Programming-Principles-In-Scala/Week 2. Higher Order Functions" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgrammingPrinciplesIn Scala/Functional-Programming-Principles-In-Scala/Week 3. Data and Abstraction" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgrammingPrinciplesIn Scala/Functional-Programming-Principles-In-Scala/Week 4. Types and Patterns" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgrammingPrinciplesIn Scala/Functional-Programming-Principles-In-Scala/Week 6. Collections" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/FunctionalProgrammingPrinciplesIn Scala/recfun" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/MyAssignments/forcomp" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/MyAssignments/funsets" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/MyAssignments/objsets" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/MyAssignments/patmat" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/BARNESHUT/ParallelProgramming" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/BARNESHUT/barneshut" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/barneshut" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/coursera-parprog1-kmeans" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/kmeans" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/parprog1-kmeans" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/scalashop" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/week1/assigments/scalashop" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/week2/assigments/reductions" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/week3/kmeans" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/coursera-parallel-programming-scala/week4/barneshut" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/COURSERA/recfun" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/Microservices/PACKT_PUBLISHING_LEARNING_PATH_AKKA_BUILDING_APPLICATIONS_AND_MICROSERVICES_WITH_AKKA_TUTORIAL-OXBRiDGE/Learning-Akka" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/Spark, Scala, Kafka, Cassandra, Akka/Pluralsight - Play 2 for Scala/play-2-scala/3-play-2-for-scala-exercise-files/routing" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/Spark, Scala, Kafka, Cassandra, Akka/Pluralsight - Play 2 for Scala/play-2-scala/5-play-2-for-scala-exercise-files" value="PREVIEW" />
+        <entry key="/media/arturotarin/TI31407100A1/Users/Arturo/Documents/BIG DATA/VIDEOS/Spark, Scala, Kafka, Cassandra, Akka/Pluralsight - Play 2 for Scala/play-2-scala/6-play-2-for-scala-exercise-files" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad30739f-df2c-476d-b11f-5b537ee68c27" name="Default Changelist" comment="" />
+      <created>1601870422067</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601870422067</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="586" y="111" key="FileChooserDialogImpl" timestamp="1601974082991">
+      <screen x="0" y="33" width="1920" height="1047" />
+    </state>
+    <state x="586" y="111" key="FileChooserDialogImpl/0.33.1920.1047@0.33.1920.1047" timestamp="1601974082991" />
+    <state x="355" y="33" width="1203" height="999" key="find.popup" timestamp="1603098438597">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="355" y="33" width="1203" height="999" key="find.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1603098438597" />
+    <state x="355" y="33" width="1203" height="990" key="find.popup/0.33.1920.1047@0.33.1920.1047" timestamp="1603086906382" />
+    <state x="368" y="226" key="run.anything.popup" timestamp="1601957906160">
+      <screen x="0" y="33" width="1920" height="1047" />
+    </state>
+    <state x="368" y="226" key="run.anything.popup/0.33.1920.1047@0.33.1920.1047" timestamp="1601957906160" />
+  </component>
+</project>
