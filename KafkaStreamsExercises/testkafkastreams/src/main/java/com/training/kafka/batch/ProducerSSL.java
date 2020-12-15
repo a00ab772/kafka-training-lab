@@ -16,7 +16,7 @@ public class ProducerSSL {
 
         // Configuración del productor de mensajes en Kafka
         Properties props = new Properties();
-        props.put("bootstrap.servers", "formacionkafka1.goldcar.com:9093");
+        props.put("bootstrap.servers", "localhost:9093");
         // Si el broker estuviese Kerberizado usaríamos esta configuración
         props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "SSL");
         props.put(SslConfigs.SSL_TRUSTSTORE_LOCATION_CONFIG, "/etc/security/keytabs/ssl_client/kafka.client.truststore.jks");
