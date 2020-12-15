@@ -2,7 +2,7 @@
 
 
 # Source library
-source ../../../utils/helper.sh
+source ../../utils/helper.sh
 
 check_env || exit 1
 validate_version_confluent_cli_v2 || exit 1

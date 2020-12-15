@@ -1,4 +1,8 @@
 #!/bin/bash
+# set -x
+# trap read debug
+# set -o verbose \
+#     -o xtrace
 
 function create_temp_configs() {
 

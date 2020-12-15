@@ -8,7 +8,7 @@ export CONFLUENT_HOME=~/Downloads/confluent-6.0.0
 # Overview
 ################################################################################
 #
-# Demo the Role Based Access Control (RBAC) functionality with the new Confluent CLI
+# Role Based Access Control (RBAC) functionality with the new Confluent CLI
 #
 # Usage:
 #
@@ -21,7 +21,7 @@ export CONFLUENT_HOME=~/Downloads/confluent-6.0.0
 ################################################################################
 
 # Source library
-source ../../../utils/helper.sh
+source  ../../utils/helper.sh
 
 check_env \
   && print_pass "Confluent Platform installed" \
@@ -42,10 +42,19 @@ sleep 1
 ./init.sh
 
 ./enable-rbac-broker.sh
-./enable-rbac-schema-registry.sh
-./enable-rbac-connect.sh
-./enable-rbac-rest-proxy.sh
-./enable-rbac-ksqldb-server.sh
-./enable-rbac-control-center.sh
+
+# ./enable-rbac-schema-registry.sh
+# ./enable-rbac-connect.sh
+# ./enable-rbac-rest-proxy.sh
+# ./enable-rbac-ksqldb-server.sh
+# ./enable-rbac-control-center.sh
 
 #./cleanup.sh
+
+echo
+echo  *=====================================================================*
+echo  "  This security configuration has been enabled in your Kafka cluster:"
+echo  *=====================================================================*
+echo
+confluent local services kafka log | grep "listener.security.protocol.map ="
+confluent local services kafka log | grep "advertised.listeners = TOKEN"

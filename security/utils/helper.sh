@@ -4,8 +4,8 @@
 
 # set -o nounset \
 #     -o errexit \
-set -o verbose \
-    -o xtrace
+# set -o verbose \
+#     -o xtrace
 
 ################################################################
 # Source Confluent Platform versions
