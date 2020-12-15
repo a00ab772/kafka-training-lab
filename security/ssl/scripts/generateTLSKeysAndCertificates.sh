@@ -8,8 +8,8 @@ KEYPASSWORD=test1234
 STOREPASSWORD=test1234
 PEMPASSWORD=test1234
 VALIDITY=365
-DOMAIN_NAME="CN=localhost,OU=architecture,O=goldcar,L=valencia,ST=valencia,C=es"
-PEM_DOMAIN_NAME="/C=es/ST=valencia/L=valencia/O=goldcar/OU=architecture/CN=localhost"
+DOMAIN_NAME="CN=localhost,OU=architecture,O=hcl,L=valencia,ST=valencia,C=es"
+PEM_DOMAIN_NAME="/C=es/ST=valencia/L=valencia/O=hcl/OU=architecture/CN=localhost"
 
 rm /tmp/kafka.server.truststore.jks
 rm /tmp/kafka.client.keystore.jks
