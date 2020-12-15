@@ -1,0 +1,8 @@
+
+>squid:S2189!""Add an end condition to this loop.(˜ïˆžÿÿÿÿÿ
+bsquid:S2095"KUse try-with-resources or close this "KafkaProducer" in a "finally" clause.(¶´‰ƒ
+gsquid:CommentedOutCodeLine3"<This block of commented-out lines of code should be removed.(€õÛ…øÿÿÿÿ
+T
+squid:S106""9Replace this use of System.out or System.err by a logger.(Íú£«ÿÿÿÿÿ
+]squid:S2142+"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+qsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(»Ï±3

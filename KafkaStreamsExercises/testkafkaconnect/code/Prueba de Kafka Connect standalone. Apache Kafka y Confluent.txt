@@ -1,0 +1,309 @@
+APACHE KAFKA CONNECT: SOURCE FILE TO SINK CONSOLE
+=================================================
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:34:02 $ wget http://apache.rediris.es/kafka/2.1.0/kafka_2.12-2.1.0.tgz
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:34:02 $ tar -xvfz kafka_2.12-2.1.0.tgz
+ 
+arturotarin@QOSMIO-X70B:~/Downloads
+06:34:02 $ ~/Downloads/kafka_2.12-2.0.0/bin/zookeeper-server-start.sh -daemon ~/Downloads/kafka_2.12-2.0.0/config/zookeeper.properties 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:37:39 $ echo ruok | nc localhost 2181
+imok
+arturotarin@QOSMIO-X70B:~/Downloads
+06:37:43 $ nc -vz localhost 2181
+Connection to localhost 2181 port [tcp/*] succeeded!
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:38:55 $ ~/Downloads/kafka_2.12-2.0.0/bin/kafka-server-start.sh -daemon ~/Downloads/kafka_2.12-2.0.0/config/server.properties 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:39:43 $  nc -vz localhost 9092
+Connection to localhost 9092 port [tcp/*] succeeded!
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:43:08 $ ~/Downloads/kafka_2.12-2.0.0/bin/kafka-topics.sh --create --topic apache-test --replication-factor 1 --partitions 1 --zookeeper localhost:2181
+Created topic "apache-test".
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:43:18 $ cat ~/Downloads/kafka_2.12-2.0.0/config/connect-standalone.properties 
+bootstrap.servers=localhost:9092
+key.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter
+key.converter.schemas.enable=true
+value.converter.schemas.enable=true
+offset.storage.file.filename=/tmp/connect.offsets
+offset.flush.interval.ms=10000
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:45:54 $ cat ~/Downloads/kafka_2.12-2.0.0/config/connect-file-source.properties 
+
+name=local-file-source
+connector.class=FileStreamSource
+tasks.max=1
+file=/tmp/prueba.txt
+topic=apache-test
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:48:39 $ ~/Downloads/kafka_2.12-2.0.0/bin/connect-standalone.sh -daemon ~/Downloads/kafka_2.12-2.0.0/config/connect-standalone.properties ~/Downloads/kafka_2.12-2.0.0/config/connect-file-source.properties 
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:51:08 $ ~/Downloads/kafka_2.12-2.0.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic apache-test --from-beginning
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:53:43 $ 
+echo -e "log linea 1\nlog linea 2\nlog linea 3" >> /tmp/prueba.txt
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:51:08 $ ~/Downloads/kafka_2.12-2.0.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic apache-test --from-beginning
+{"schema":{"type":"string","optional":false},"payload":"log linea 1"}
+{"schema":{"type":"string","optional":false},"payload":"log linea 2"}
+{"schema":{"type":"string","optional":false},"payload":"log linea 3"}
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:26:48 $ for i in `ps -ef | grep kafka | awk '{print $2}'`; do kill -9 $i; done
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:26:48 $ for i in `ps -ef | grep zoo | awk '{print $2}'`; do kill -9 $i; done
+
+
+
+APACHE KAFKA CONNECT: SOURCE FILE TO SINK FILE
+==============================================
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:34:02 $ ~/Downloads/kafka_2.12-2.0.0/bin/zookeeper-server-start.sh -daemon ~/Downloads/kafka_2.12-2.0.0/config/zookeeper.properties 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:37:39 $ echo ruok | nc localhost 2181
+imok
+arturotarin@QOSMIO-X70B:~/Downloads
+06:37:43 $ nc -vz localhost 2181
+Connection to localhost 2181 port [tcp/*] succeeded!
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:38:55 $ ~/Downloads/kafka_2.12-2.0.0/bin/kafka-server-start.sh -daemon ~/Downloads/kafka_2.12-2.0.0/config/server.properties 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:39:43 $  nc -vz localhost 9092
+Connection to localhost 9092 port [tcp/*] succeeded!
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:45:54 $ cat ~/Downloads/kafka_2.12-2.0.0/config/connect-file-sink.properties 
+
+name=local-file-source
+connector.class=FileStreamSource
+tasks.max=1
+file=/tmp/prueba_sink.txt
+topics=apache-test
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:48:39 $ ~/Downloads/kafka_2.12-2.0.0/bin/connect-standalone.sh -daemon ~/Downloads/kafka_2.12-2.0.0/config/connect-standalone.properties ~/Downloads/kafka_2.12-2.0.0/config/connect-file-source.properties ~/Downloads/kafka_2.12-2.0.0/config/connect-file-sink.properties 
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:34:20 $ ~/Downloads/kafka_2.12-2.0.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic apache-test --from-beginning
+{"schema":{"type":"string","optional":false},"payload":"log linea 1"}
+{"schema":{"type":"string","optional":false},"payload":"log linea 2"}
+{"schema":{"type":"string","optional":false},"payload":"log linea 3"}
+
+07:34:09 $ tail -10f /tmp/prueba_sink.txt 
+log linea 1
+log linea 2
+log linea 3
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:33:05 $ echo -e "log-de-extremo a extremo 4" >> /tmp/prueba.txt
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:34:20 $ ~/Downloads/kafka_2.12-2.0.0/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic apache-test --from-beginning
+{"schema":{"type":"string","optional":false},"payload":"log linea 1"}
+{"schema":{"type":"string","optional":false},"payload":"log linea 2"}
+{"schema":{"type":"string","optional":false},"payload":"log linea 3"}
+{"schema":{"type":"string","optional":false},"payload":"log-de-extremo a extremo 4"}
+
+07:34:09 $ tail -10f /tmp/prueba_sink.txt 
+log linea 1
+log linea 2
+log linea 3
+log-de-extremo a extremo 4
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:26:48 $ for i in `ps -ef | grep kafka | awk '{print $2}'`; do kill -9 $i; done
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:26:48 $ for i in `ps -ef | grep zoo | awk '{print $2}'`; do kill -9 $i; done
+
+
+
+
+CONFLUENT KAFKA CONNECT: SOURCE FILE TO SINK CONSOLE
+====================================================
+
+https://www.confluent.io/download
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:58:31 $ tar -xvf confluent-5.1.0-2.11.tar.gz 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:52:35 $ ~/Downloads/confluent-5.1.0/bin/zookeeper-server-start -daemon ~/Downloads/confluent-5.1.0/etc/kafka/zookeeper.properties 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:53:11 $ echo ruok | nc localhost 2181
+imok
+arturotarin@QOSMIO-X70B:~/Downloads
+05:53:15 $ nc -vz localhost 2181
+Connection to localhost 2181 port [tcp/*] succeeded!
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:57:34 $ ~/Downloads/confluent-5.1.0/bin/kafka-server-start -daemon ~/Downloads/confluent-5.1.0/etc/kafka/server.properties 
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:57:27 $ nc -vz localhost 9092
+Connection to localhost 9092 port [tcp/*] succeeded!
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:57:27 $ ~/Downloads/confluent-5.1.0/bin/kafka-topics --create --topic connect-test --replication-factor 1 --partitions 1 --zookeeper localhost:2181
+ 
+arturotarin@QOSMIO-X70B:~/Downloads
+06:02:39 $ cat ~/Downloads/confluent-5.1.0/etc/kafka/connect-standalone.properties
+
+bootstrap.servers=localhost:9092
+key.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter
+key.converter.schemas.enable=true
+value.converter.schemas.enable=true
+offset.storage.file.filename=/tmp/connect.offsets
+offset.flush.interval.ms=10000
+plugin.path=share/java
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:05:44 $ cat ~/Downloads/confluent-5.1.0/etc/kafka/connect-file-source.properties 
+
+name=local-file-source
+connector.class=FileStreamSource
+tasks.max=1
+file=/tmp/test.txt
+topic=connect-test
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:21:26 $ echo -e "log line 1\nlog line 2" > /tmp/test.txt
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:22:03 $ cat /tmp/test.txt 
+log line 1
+log line 2
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:23:08 $ ~/Downloads/confluent-5.1.0/bin/connect-standalone -daemon ~/Downloads/confluent-5.1.0/etc/kafka/connect-standalone.properties ~/Downloads/confluent-5.1.0/etc/kafka/connect-file-source.properties 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:27:27 $ tail -f ~/Downloads/confluent-5.1.0/logs/connectStandalone.out 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:16:21 $ ~/Downloads/confluent-5.1.0/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic connect-test --from-beginning
+{"schema":{"type":"string","optional":false},"payload":"log line 1"}
+{"schema":{"type":"string","optional":false},"payload":"log line 2"}
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:24:27 $ echo -e "log line 3\nlog line 4" >> /tmp/test.txt
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:16:21 $ ~/Downloads/confluent-5.1.0/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic connect-test --from-beginning
+{"schema":{"type":"string","optional":false},"payload":"log line 1"}
+{"schema":{"type":"string","optional":false},"payload":"log line 2"}
+{"schema":{"type":"string","optional":false},"payload":"log line 3"}
+{"schema":{"type":"string","optional":false},"payload":"log line 4"}
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:26:48 $ for i in `ps -ef | grep kafka | awk '{print $2}'`; do kill -9 $i; done
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:26:48 $ for i in `ps -ef | grep zoo | awk '{print $2}'`; do kill -9 $i; done
+
+
+
+CONFLUENT KAFKA CONNECT: SOURCE FILE TO SINK JDBC (SQLITE)
+==========================================================
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:52:35 $ ~/Downloads/confluent-5.1.0/bin/zookeeper-server-start -daemon ~/Downloads/confluent-5.1.0/etc/kafka/zookeeper.properties 
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:53:11 $ echo ruok | nc localhost 2181
+imok
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:53:15 $ nc -vz localhost 2181
+Connection to localhost 2181 port [tcp/*] succeeded!
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:57:34 $ ~/Downloads/confluent-5.1.0/bin/kafka-server-start -daemon ~/Downloads/confluent-5.1.0/etc/kafka/server.properties 
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:57:27 $ nc -vz localhost 9092
+Connection to localhost 9092 port [tcp/*] succeeded!
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:51:13 $ sqlite3 test.db
+SQLite version 3.23.1 2018-04-10 17:39:29
+Enter ".help" for usage hints.
+sqlite> CREATE TABLE accounts(id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name VARCHAR(255));
+sqlite> INSERT INTO accounts(name) VALUES('alice');
+sqlite> INSERT INTO accounts(name) VALUES('bob');
+sqlite> select * from accounts;
+1|alice
+2|bob
+sqlite> .tables
+accounts
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:42:04 $ cat ~/Downloads/confluent-5.1.0/etc/kafka-connect-jdbc/sink-quickstart-sqlite.properties 
+
+# A simple example that copies from a topic to a SQLite database.
+# The first few settings are required for all connectors:
+# a name, the connector class to run, and the maximum number of tasks to create:
+name=test-sink
+connector.class=io.confluent.connect.jdbc.JdbcSinkConnector
+tasks.max=1
+
+# The topics to consume from - required for sink connectors like this one
+topics=connect-test
+
+# Configuration specific to the JDBC sink connector.
+# We want to connect to a SQLite database stored in the file test.db and auto-create tables.
+connection.url=jdbc:sqlite:test.db
+auto.create=true
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:44:19 $ ~/Downloads/confluent-5.1.0/bin/connect-standalone -daemon ~/Downloads/confluent-5.1.0/etc/kafka/connect-standalone.properties ~/Downloads/confluent-5.1.0/etc/kafka/connect-file-source.properties ~/Downloads/confluent-5.1.0/etc/kafka-connect-jdbc/sink-quickstart-sqlite.properties 
+
+
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:51:13 $ sqlite3 test.db
+sqlite> .tables
+accounts
+
+# NO HAY MAS. REVISANDO EL LOG A VER QUÉ HEMOS HECHO MAL	
+
+arturotarin@QOSMIO-X70B:~/Downloads
+07:54:57 $ tail -f ~/Downloads/confluent-5.1.0/logs/connectStandalone.out 
+
+
+

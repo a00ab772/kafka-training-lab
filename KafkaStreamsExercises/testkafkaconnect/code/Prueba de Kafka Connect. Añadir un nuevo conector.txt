@@ -1,0 +1,23 @@
+
+1) DESCARGA KAFKA
+=================
+
+O Apache Kafka
+--------------
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:34:02 $ wget http://apache.rediris.es/kafka/2.1.0/kafka_2.12-2.1.0.tgz
+
+arturotarin@QOSMIO-X70B:~/Downloads
+06:34:02 $ tar -xvfz kafka_2.12-2.1.0.tgz
+ 
+
+O Confluent Kafka
+-----------------
+
+
+https://www.confluent.io/download
+
+arturotarin@QOSMIO-X70B:~/Downloads
+05:58:31 $ tar -xvf confluent-5.1.0-2.11.tar.gz 
+

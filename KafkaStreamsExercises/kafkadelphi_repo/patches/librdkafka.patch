@@ -1,0 +1,55 @@
+diff --git a/src/rdkafka.c b/src/rdkafka.c
+index 88d7889..b0025f0 100644
+--- a/src/rdkafka.c
++++ b/src/rdkafka.c
+@@ -2680,6 +2680,12 @@ void rd_kafka_dump (FILE *fp, rd_kafka_t *rk) {
+ #endif
+ }
+ 
++void rd_kafka_dump2 (const char *filename, const char *mode, rd_kafka_t *rk) {
++  FILE *fp = fopen(filename, mode);
++  rd_kafka_dump(fp, rk);
++  fclose(fp);
++}
++
+ 
+ 
+ const char *rd_kafka_name (const rd_kafka_t *rk) {
+diff --git a/src/rdkafka.h b/src/rdkafka.h
+index d8854a3..df7948d 100644
+--- a/src/rdkafka.h
++++ b/src/rdkafka.h
+@@ -1388,6 +1388,9 @@ void rd_kafka_conf_dump_free(const char **arr, size_t cnt);
+ RD_EXPORT
+ void rd_kafka_conf_properties_show(FILE *fp);
+ 
++RD_EXPORT
++void rd_kafka_conf_properties_show2(const char *filename, const char *mode);
++
+ /**@}*/
+ 
+ 
+@@ -2905,6 +2908,9 @@ int         rd_kafka_outq_len(rd_kafka_t *rk);
+ RD_EXPORT
+ void rd_kafka_dump(FILE *fp, rd_kafka_t *rk);
+ 
++RD_EXPORT
++void rd_kafka_dump2(const char *filename, const char *mode, rd_kafka_t *rk);
++
+ 
+ 
+ /**
+diff --git a/src/rdkafka_conf.c b/src/rdkafka_conf.c
+index b2d1293..d35b8aa 100644
+--- a/src/rdkafka_conf.c
++++ b/src/rdkafka_conf.c
+@@ -1911,3 +1911,9 @@ void rd_kafka_conf_properties_show (FILE *fp) {
+ 	fprintf(fp, "\n");
+         fprintf(fp, "### C/P legend: C = Consumer, P = Producer, * = both\n");
+ }
++
++void rd_kafka_conf_properties_show2 (const char *filename, const char *mode) {
++  FILE *fp = fopen(filename, mode);
++  rd_kafka_conf_properties_show(fp);
++  fclose(fp);
++}

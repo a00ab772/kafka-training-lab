@@ -1,0 +1,3 @@
+# Kafka training lab
+
+WIP

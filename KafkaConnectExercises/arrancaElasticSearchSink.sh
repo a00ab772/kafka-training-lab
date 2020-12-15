@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo """
+
+Pon estas propiedades en tu conector Sink de ElasticSearch (Confluent):
+
+# Estos son los parámetros estandar mínimos que todos los conectores necesitarán
+name=sink-elastic-twitter-distributed
+connector.class=io.confluent.connect.elasticsearch.ElasticsearchSinkConnector
+# Aumentamos el paralelismo a 2 tareas: como sabes, los consumidores pueden escalar horizontalmente
+# (Los productores todavía no pueden)
+tasks.max=2
+topics=demo-3-twitter
+# El tópico de entrada tiene un esquema, por lo tanto hemos de habilitar la conversión de esquemas
+key.converter=org.apache.kafka.connect.json.JsonConverter
+key.converter.schemas.enable=true
+value.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter.schemas.enable=true
+# Configuración del conector de ElasticSearch
+# http://docs.confluent.io/3.3.0/connect/connect-elasticsearch/docs/configuration_options.html
+connection.url=http://elasticsearch:9200
+# Basicamente es una tabla
+
+type.name=kafka-connect
+# Las claves en twitter eran nulas, por lo que hemos de ignorarlas
+key.ignore=true
+# Es necesario añadir estos parámetros para que la configuración funcione
+topic.index.map="demo-3-twitter:index1"
+topic.key.ignore=true
+topic.schema.ignore=true
+
+"""

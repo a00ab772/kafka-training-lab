@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/KafkaStreamsExercises/alpakka_kafka_poc_repo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/KafkaStreamsExercises/kafkadelphi_repo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/KafkaStreamsExercises/spring-boot-kafka-consumer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/KafkaStreamsExercises/spring-boot-kafka-producer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/KafkaStreamsExercises/testkafkaconnect" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/KafkaStreamsExercises/testkafkastreams" vcs="Git" />
+  </component>
+</project>

@@ -1,0 +1,308 @@
+# SOURCE CONNECTOR TWITTER
+name=source-twitter-distributed
+connector.class=com.eneco.trading.kafka.connect.twitter.TwitterSourceConnector
+tasks.max=1
+topic=demo-3-twitter
+key.converter=org.apache.kafka.connect.json.JsonConverter
+key.converter.schemas.enable=true
+value.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter.schemas.enable=true
+# Twitter connector specific configuration
+twitter.consumerkey=ux4qfqGGXatAsulxtAmR66d6R
+twitter.consumersecret=cVTas28KihCiJL4eSWvR0EbAqvhOoP1FypGQqQqPmod8v2YJWI
+twitter.token=4866875793-Mte3fy0GPi6F58MqRXt91Vpao5AMSFFMmzu0t7y
+twitter.secret=ZdSUgBQzDQeN6MJNoDDmKCBdFNkWvKqo2lsNAmsRaGUvN
+track.terms=goldcar,europcar,rentacar,sixt
+language=en
+
+
+cat << EOF > source-twitter-distributed.json
+{
+  "name": "source-twitter-distributed",
+  "config": {
+    "connector.class": "com.eneco.trading.kafka.connect.twitter.TwitterSourceConnector",
+    "twitter.token": "4866875793-Mte3fy0GPi6F58MqRXt91Vpao5AMSFFMmzu0t7y",
+    "tasks.max": "1",
+    "twitter.secret": "ZdSUgBQzDQeN6MJNoDDmKCBdFNkWvKqo2lsNAmsRaGUvN",
+    "track.terms": "goldcar,europcar,rentacar,sixt,alquiler,coche",
+    "language": "es",
+    "key.converter.schemas.enable": "true",
+    "value.converter.schemas.enable": "true",
+    "name": "source-twitter-distributed",
+    "topic": "demo-3-twitter",
+    "twitter.consumersecret": "cVTas28KihCiJL4eSWvR0EbAqvhOoP1FypGQqQqPmod8v2YJWI",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "twitter.consumerkey": "ux4qfqGGXatAsulxtAmR66d6R"    
+  }
+}
+EOF
+curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d @source-twitter-distributed.json 
+http://127.0.0.1:8083/connectors | jq
+
+
+
+# SINK CONNECTOR ELASTICSEARCH
+name=sink-elastic-twitter-distributed
+connector.class=io.confluent.connect.elasticsearch.ElasticsearchSinkConnector
+# We can have parallelism here so we have two tasks!
+tasks.max=2
+topics=demo-3-twitter
+# the input topic has a schema, so we enable schemas conversion here too
+key.converter=org.apache.kafka.connect.json.JsonConverter
+key.converter.schemas.enable=true
+value.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter.schemas.enable=true
+# ElasticSearch connector specific configuration
+# # http://docs.confluent.io/3.3.0/connect/connect-elasticsearch/docs/configuration_options.html
+connection.url=http://elasticsearch:9200
+type.name=kafka-connect
+# because our keys from the twitter feed are null, we have key.ignore=true
+key.ignore=true
+# some (dummy) settings we need to add to ensure the configuration is accepted (see The bug is tracked at https://github.com/Landoop/fast-data-dev/issues/42
+topic.index.map="demo-3-twitter:index1"
+topic.key.ignore=true
+topic.schema.ignore=true
+
+
+cat << EOF > sink-elastic-twitter-distributed.json
+{
+  "name": "sink-elastic-twitter-distributed",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "type.name": "kafka-connect",
+    "tasks.max": "3",
+    "topics": "demo-3-twitter",
+    "key.ignore": "true",
+    "key.converter.schemas.enable": "true",
+    "topic.index.map": "\"demo-3-twitter:index1\"",
+    "topic.key.ignore": "true",
+    "value.converter.schemas.enable": "true",
+    "name": "sink-elastic-twitter-distributed",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "connection.url": "http://elasticsearch:9200",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "topic.schema.ignore": "true"
+  }
+}
+EOF
+curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d @sink-elastic-twitter-distributed.json 
+http://127.0.0.1:8083/connectors | jq
+
+
+# SINK CONNECTOR POSTGRES
+name=sink-postgres-twitter-distributed
+connector.class=io.confluent.connect.jdbc.JdbcSinkConnector
+# We can have parallelism here so we have two tasks!
+tasks.max=1
+topics=demo-3-twitter
+# the input topic has a schema, so we enable schemas conversion here too
+key.converter=org.apache.kafka.connect.json.JsonConverter
+key.converter.schemas.enable=true
+value.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter.schemas.enable=true
+# JDBCSink connector specific configuration
+# http://docs.confluent.io/3.2.0/connect/connect-jdbc/docs/sink_config_options.html
+connection.url=jdbc:postgresql://postgres:5432/postgres
+connection.user=postgres
+connection.password=postgres
+insert.mode=upsert
+# we want the primary key to be offset + partition
+pk.mode=kafka
+# default value but I want to highlight it:
+pk.fields=__connect_topic,__connect_partition,__connect_offset
+fields.whitelist=id,created_at,text,lang,is_retweet
+auto.create=true
+auto.evolve=true
+
+cat << EOF > sink-postgres-twitter-distributed.json
+{
+  "name": "sink-postgres-twitter-distributed",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSinkConnector",
+    "connection.password": "postgres",
+    "tasks.max": "1",
+    "topics": "demo-3-twitter",
+    "key.converter.schemas.enable": "true",
+    "fields.whitelist": "id,created_at,text,lang,is_retweet",
+    "auto.evolve": "true",
+    "connection.user": "postgres",
+    "value.converter.schemas.enable": "true",
+    "name": "sink-postgres-twitter-distributed",
+    "auto.create": "true",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "connection.url": "jdbc:postgresql://postgres:5432/postgres",
+    "insert.mode": "upsert",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "pk.mode": "kafka",
+    "pk.fields": "__connect_topic,__connect_partition,__connect_offset"
+  }
+}
+EOF
+curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d @sink-postgres-twitter-distributed.json 
+http://127.0.0.1:8083/connectors | jq
+
+CONSULTAR EN KAFKA
+
+arturotarin@QOSMIO-X70B:~
+05:49:35~$ docker exec -it code_kafka-cluster_1 bash
+
+root@fast-data-dev / $ kafka-console-consumer --topic demo-3-twitter --bootstrap-server 127.0.0.1:9092
+
+
+
+
+
+# 1) Get Worker information
+curl -s 127.0.0.1:8083/ | jq
+
+# 2) List Connectors available on a Worker
+curl -s 127.0.0.1:8083/connector-plugins | jq
+
+# 3) Ask about Active Connectors
+curl -s 127.0.0.1:8083/connectors | jq
+
+# 4) Get information about a Connector Tasks and Config
+curl -s 127.0.0.1:8083/connectors/source-twitter-distributed/tasks | jq
+
+# 5) Get Connector Status
+curl -s 127.0.0.1:8083/connectors/sink-elastic-twitter-distributed/status | jq
+
+# 6) Pause / Resume a Connector (no response if the call is succesful)
+curl -s -X PUT 127.0.0.1:8083/connectors/sink-elastic-twitter-distributed/pause
+curl -s -X PUT 127.0.0.1:8083/connectors/sink-elastic-twitter-distributed/resume
+
+# 7) Get Connector Configuration
+curl -s 127.0.0.1:8083/connectors/sink-postgres-twitter-distributed | jq
+
+# 8) Delete our Connector
+curl -s -X DELETE 127.0.0.1:8083/connectors/sink-elastic-twitter-distributed
+
+# 9) Create a new Connector
+cat << EOF > sink-elastic-twitter-distributed.json
+{
+  "name": "sink-elastic-twitter-distributed",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "type.name": "kafka-connect",
+    "tasks.max": "1",
+    "topics": "demo-3-twitter",
+    "key.ignore": "true",
+    "key.converter.schemas.enable": "true",
+    "topic.index.map": "\"demo-3-twitter:index1\"",
+    "topic.key.ignore": "true",
+    "value.converter.schemas.enable": "true",
+    "name": "sink-elastic-twitter-distributed",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "connection.url": "http://elasticsearch:9200",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "topic.schema.ignore": "true"
+  }
+}
+EOF
+curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d @sink-elastic-twitter-distributed.json 
+http://127.0.0.1:8083/connectors | jq
+
+
+curl -s -X POST -H "Content-Type: application/json" --data '{"name": "file-stream-demo-distributed", "config":{"connector.class":"org.apache.kafka.connect.file.FileStreamSourceConnector","key.converter.schemas.enable":"true","file":"demo-file.txt","tasks.max":"1","value.converter.schemas.enable":"true","name":"file-stream-demo-distributed","topic":"demo-2-distributed","value.converter":"org.apache.kafka.connect.json.JsonConverter","key.converter":"org.apache.kafka.connect.json.JsonConverter"}}' http://127.0.0.1:8083/connectors | jq
+
+
+# 10) Update Connector configuration
+
+cat << EOF > sink-elastic-twitter-distributed-v1.json
+{
+  "name": "sink-elastic-twitter-distributed",
+  "config": {
+    "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+    "type.name": "kafka-connect",
+    "tasks.max": "3",
+    "topics": "demo-3-twitter",
+    "key.ignore": "true",
+    "key.converter.schemas.enable": "true",
+    "topic.index.map": "\"demo-3-twitter:index1\"",
+    "topic.key.ignore": "true",
+    "value.converter.schemas.enable": "true",
+    "name": "sink-elastic-twitter-distributed",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "connection.url": "http://elasticsearch:9200",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "topic.schema.ignore": "true"
+  }
+}
+EOF
+curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d @sink-elastic-twitter-distributed.json 
+http://127.0.0.1:8083/connectors | jq
+
+
+
+curl -s -X PUT -H "Content-Type: application/json" --data '{"connector.class":"org.apache.kafka.connect.file.FileStreamSourceConnector","key.converter.schemas.enable":"true","file":"demo-file.txt","tasks.max":"2","value.converter.schemas.enable":"true","name":"file-stream-demo-distributed","topic":"demo-2-distributed","value.converter":"org.apache.kafka.connect.json.JsonConverter","key.converter":"org.apache.kafka.connect.json.JsonConverter"}' 127.0.0.1:8083/connectors/file-stream-demo-distributed/config | jq
+
+
+CONSULTAR EN ELASTICSEARCH
+
+http://127.0.0.1:9200/_plugin/dejavu
+
+
+CONSULTAR EN POSTGRES
+
+
+arturotarin@QOSMIO-X70B:/media/arturotarin/TI31407100A/Users/Arturo/Documents/BIG DATA/VIDEOS/UDEMY/Apache Kafka Series - Kafka Connect Hands-on Learning/5.1 code_v3.3.0.zip/code
+10:43:22~$ docker exec -it code_postgres_1 bash
+bash-4.4# psql -U postgres
+psql (9.5.15)
+Type "help" for help.
+
+postgres=#  \l
+                                 List of databases
+   Name    |  Owner   | Encoding |  Collate   |   Ctype    |   Access privileges   
+-----------+----------+----------+------------+------------+-----------------------
+ postgres  | postgres | UTF8     | en_US.utf8 | en_US.utf8 | 
+ template0 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.utf8 | en_US.utf8 | =c/postgres          +
+           |          |          |            |            | postgres=CTc/postgres
+(3 rows)
+
+postgres=# \dt
+             List of relations
+ Schema |      Name      | Type  |  Owner   
+--------+----------------+-------+----------
+ public | demo-3-twitter | table | postgres
+(1 row)
+
+postgres=# select * from "public"."demo-3-twitter";
+ __connect_topic | __connect_partition | __connect_offset |          created_at          |         id          |                                                                     text                                                                     | lang | is_retweet 
+-----------------+---------------------+------------------+------------------------------+---------------------+----------------------------------------------------------------------------------------------------------------------------------------------+------+------------
+ demo-3-twitter  |                   0 |                0 | 2018-12-09T05:09:34.000+0000 | 1071632928394874880 | RT @Azure: Access #Kafka ecosystem apps without having to manage servers or networks. See how with #Azure Event Hubs: https://t.co/Br9h2eBq… | en   | t
+ demo-3-twitter  |                   0 |                1 | 2018-12-09T05:09:44.000+0000 | 1071632969159335937 | @Bailey1050 @thehill Unfortunately, there might be a correlation with unnecessary mandates such as this an Ohio’s r… https://t.co/rtNIO8iMgp | en   | f
+ demo-3-twitter  |                   0 |                2 | 2018-12-09T05:09:51.000+0000 | 1071633000100704256 | RT: Willow Springs ES #WSESfox #Elementary #School for 3D Game Programming (1-6th Grade) @ STEM Summer Camp 🕰️🖥️🎮💎 https://t.co/YkmyeCXNjC   | en   | f
+ demo-3-twitter  |                   0 |                3 | 2018-12-09T05:09:56.000+0000 | 1071633019478302720 | RT @ridwankamil: MAJALENGKA, a hidden tourism treasure of West Java. https://t.co/DdYheSCZX4                                                 | en   | t
+ demo-3-twitter  |                   0 |                4 | 2018-12-09T05:09:57.000+0000 | 1071633024738099201 | RT: Southgate Community Center for #STEM #Classes #Designing #Legos #Programming #Modeling #Kids #Education 🕰️🖥️🎮💎 https://t.co/QqOXRgsoom   | en   | f
+ demo-3-twitter  |                   0 |                5 | 2018-12-09T05:10:00.000+0000 | 1071633034636517377 | Facebook Programming visits my Landmark & Historical Place. Then tries to sell everyone else tickets to get in or on.                        | en   | f
+ demo-3-twitter  |                   0 |                6 | 2018-12-09T05:10:00.000+0000 | 1071633038025654272 | RT @Hakin9: Exploiting Developer Infrastructure Is Ridiculously Easy https://t.co/7zfj6QTIZD                                                +| en   | t
+                 |                     |                  |                              |                     |                                                                                                                                             +|      | 
+                 |                     |                  |                              |                     | #infosec #hacking #hackers #Pentesting #prog…                                                                                                |      | 
+ demo-3-twitter  |                   0 |                7 | 2018-12-09T05:10:13.000+0000 | 1071633088898228224 | RT @fchollet: I think we will achieve gradually stronger AI in the future by blending pattern recognition ("deep learning etc.") with symbo… | en   | t
+ demo-3-twitter  |                   0 |                8 | 2018-12-09T05:10:18.000+0000 | 1071633110813560832 | @jengolbeck Sounds about like what I would have said... and I program in Java on a daily basis ;)                                            | en   | f
+ demo-3-twitter  |                   0 |                9 | 2018-12-09T05:10:23.000+0000 | 1071633132078608384 | RT @anoniscoding: Hi guys, so I created a programming language that allows you write code in Yoruba, it's called "Yorlang", it also comes w… | en   | t
+ demo-3-twitter  |                   0 |               10 | 2018-12-09T05:10:30.000+0000 | 1071633161719828481 | RT @java: Free AI Training - Java-based deep-learning tools to analyze and train data, then send the resulting changes back to the server.…  | en   | t
+
+
+postgres=# select count(*) from "public"."demo-3-twitter";
+ count 
+-------
+  1465
+(1 row)
+
+postgres=# select count(*) from "public"."demo-3-twitter";
+ count 
+-------
+  1466
+(1 row)
+
+postgres=# select count(*) from "public"."demo-3-twitter";
+ count 
+-------
+  1472
+(1 row)
+
