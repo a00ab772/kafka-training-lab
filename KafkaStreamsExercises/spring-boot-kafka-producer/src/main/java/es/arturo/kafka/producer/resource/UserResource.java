@@ -17,10 +17,12 @@ public class UserResource {
 
     private static final String TOPIC = "kafka-spring-cloud";
 
-    @GetMapping("/publish/{name}")
-    public String post(@PathVariable("name") final String name) {
+    @GetMapping("/publish/{name}/{dept}/{salary}")
+    public String post(@PathVariable("name") final String name,
+                       @PathVariable("dept") final String dept,
+                       @PathVariable("salary") final Long salary) {
 
-        kafkaTemplate.send(TOPIC, new User(name, "Technology", 12000L));
+        kafkaTemplate.send(TOPIC, new User(name, dept, salary));
 
         return "Published successfully";
     }
