@@ -1,11 +1,10 @@
 #!/bin/bash
 
-# Abrir un edgenode
+# Open an edgenode
 docker run --rm -it --net=host landoop/fast-data-dev:cp3.3.0 bash
-# Instalar pretty print json
+# Install pretty print json
 apk update && apk add jq
 
-# Ejemplos sacados de aquí:
 # http://docs.confluent.io/3.2.0/connect/managing.html#common-rest-examples
 # 1) Get Worker information
 curl -s 127.0.0.1:8084/ | jq

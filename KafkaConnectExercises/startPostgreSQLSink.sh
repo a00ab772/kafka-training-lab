@@ -2,22 +2,23 @@
 
 echo """
 
-# Estos son los parámetros estandar mínimos que todos los conectores necesitarán
+# Minimum config parameters
 name=sink-postgres-twitter-distributed
 connector.class=io.confluent.connect.jdbc.JdbcSinkConnector
-# Aumentamos el paralelismo a 3 tareas: como sabes, los consumidores pueden escalar horizontalmente
-# (Los productores todavía no pueden)
+
+# Parallelism: 3 consumers
 tasks.max=3
 topics=demo-3-twitter
 
-# El tópico de entrada tiene un esquema, por lo tanto hemos de habilitar la conversión de esquemas
+# Input topic has a schema, enabling it
 key.converter=org.apache.kafka.connect.json.JsonConverter
 key.converter.schemas.enable=true
 value.converter=org.apache.kafka.connect.json.JsonConverter
 value.converter.schemas.enable=true
 
-# Detalles sobre la configuración específica de JDBCSink connector en
+# See here JDBCSink connector configuration details
 # http://docs.confluent.io/3.2.0/connect/connect-jdbc/docs/sink_config_options.html
+
 connection.url=jdbc:postgresql://postgres:5432/postgres
 connection.user=postgres
 connection.password=postgres
