@@ -68,14 +68,18 @@ Table of contents
         * [Session windows](#session-windows)
         * [Window final results](#window-final-results)
 
+
 * [Applying processors and transformers (Processor API integration)](#processors-and-transformers)
     * [process: KStream -> void](#process)
     * [transform: KStream -> KStream](#transform)
     * [transformValues: KStream -> KStream](#transformValues)
 
+
 * [Record caches in the DSL](#record-caches)
 
+
 * [Controlling KTable emit rate](#control-ktable-emit-rate)
+
 
 * [Writing back streams to Kafka](#writing-back-to-kafka)
     * [to: KStream -> void](#to)
