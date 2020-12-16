@@ -473,8 +473,8 @@ https://docs.confluent.io/current/_images/streams-stateful_operations.png
 ## WordCount: A stateful application example
 
 
-* [streams/WordCountLambdaExample.java](src/main/java/io/confluent/examples/streams/streamdsl/stateful/wordcount/WordCountLambdaExample.java) 
-* [streams/WordCountLambdaExampleTest.java](src/test/java/io/confluent/examples/streams/streamdsl/stateful/wordcount/WordCountLambdaExampleTest.java) 
+* [stateful/wordcount/WordCountLambdaExample.java](src/main/java/io/confluent/examples/streams/streamdsl/stateful/wordcount/WordCountLambdaExample.java) 
+* [stateful/wordcount/WordCountLambdaExampleTest.java](src/test/java/io/confluent/examples/streams/streamdsl/stateful/wordcount/WordCountLambdaExampleTest.java) 
 
 <a name="stateful-aggregating"/>
 
