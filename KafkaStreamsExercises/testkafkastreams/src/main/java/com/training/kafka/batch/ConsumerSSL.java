@@ -27,8 +27,6 @@ public class ConsumerSSL {
          props.put(SslConfigs.SSL_KEYSTORE_PASSWORD_CONFIG, "test1234");
          props.put(SslConfigs.SSL_KEY_PASSWORD_CONFIG, "test1234");
 
-
-
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("fetch.min.bytes", 1);
@@ -52,25 +50,11 @@ public class ConsumerSSL {
 
         String topico = "producer-consumer";
 
-        // Creamos el consumidor
         KafkaConsumer<String, String> consumidor = new KafkaConsumer<String, String>(props);
-
-        /*
-        // Indicamos de qué particiones vamos a consumir
-        ArrayList<TopicPartition> partitions = new ArrayList<TopicPartition>();
-        partitions.add(new TopicPartition("producer-consumer", 0));
-        partitions.add(new TopicPartition("producer-consumer", 1));
-        partitions.add(new TopicPartition("producer-consumer", 2));
-        consumidor.assign(partitions);
-
-        // Mostramos en pantalla la lista de subscripciones del consumidor
-        Set<TopicPartition> assignedPartitions = consumidor.assignment();
-        printSet(assignedPartitions);
-        */
 
         consumidor.subscribe(Arrays.asList(topico));
 
-        // Bucle para leer registros
+        // Continuously read records coming in
         try {
             while (true){
                 ConsumerRecords records = consumidor.poll(1000);
@@ -82,22 +66,11 @@ public class ConsumerSSL {
 
     }
 
-    private static void printSet(Set<TopicPartition> collection){
-        if (collection.isEmpty()) {
-            System.out.println("Todavía no tengo asignadas particiones...");
-        }
-        else {
-            System.out.println("Tengo asignadas estas particiones:");
-            for (TopicPartition partition: collection){
-                System.out.println(String.format("Partición: %s en tópico: %s", Integer.toString(partition.partition()), partition.topic()));
-            }
-        }
-    }
 
     private static void printRecords(ConsumerRecords<String, String> records)
     {
         for (ConsumerRecord<String, String> record : records) {
-            System.out.println(String.format("Tópico: %s, Partición: %d, Offset: %d, Clave: %s, Valor: %s", record.topic(), record.partition(), record.offset(), record.key(), record.value()));
+            System.out.println(String.format("Topic: %s, Partition: %d, Offset: %d, Key: %s, Value: %s", record.topic(), record.partition(), record.offset(), record.key(), record.value()));
         }
     }
 }

@@ -75,12 +75,12 @@ public class ConsumidorWordCount {
 
     private static void printSet(Set<TopicPartition> collection){
         if (collection.isEmpty()) {
-            System.out.println("Todavía no tengo asignadas particiones...");
+            System.out.println("There aren't partitions assigned yet...");
         }
         else {
-            System.out.println("Tengo asignadas estas particiones:");
+            System.out.println("These partitions have been assigned:");
             for (TopicPartition partition: collection){
-                System.out.println(String.format("Partición: %s en tópico: %s", Integer.toString(partition.partition()), partition.topic()));
+                System.out.println(String.format("Partition: %s en tópico: %s", Integer.toString(partition.partition()), partition.topic()));
             }
         }
     }
@@ -88,7 +88,7 @@ public class ConsumidorWordCount {
     private static void printRecords(ConsumerRecords<String, String> records)
     {
         for (ConsumerRecord<String, String> record : records) {
-            System.out.println(String.format("Tópico: %s, Partición: %d, Offset: %d, Clave: %s, Valor: %s", record.topic(), record.partition(), record.offset(), record.key(), record.value()));
+            System.out.println(String.format("Topic: %s, Partition: %d, Offset: %d, Key: %s, Value: %s", record.topic(), record.partition(), record.offset(), record.key(), record.value()));
         }
     }
 }

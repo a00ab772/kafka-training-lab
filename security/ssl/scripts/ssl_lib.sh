@@ -6,8 +6,8 @@
 
 function create_temp_configs() {
 
-  BANNER_START="##### RBAC demo start #####"
-  BANNER_END="##### RBAC demo end #####"
+  BANNER_START="##### SSL config start #####"
+  BANNER_END="##### SSL config end #####"
 
   FILE_ORIGINAL=$1
   FILE_BACKUP=$2

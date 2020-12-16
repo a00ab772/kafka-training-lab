@@ -10,7 +10,7 @@
 
 # Source library
 source ../../utils/helper.sh
-source ./rbac_lib.sh
+source ./ssl_lib.sh
 
 check_env || exit 1
 validate_version_confluent_cli_v2 || exit 1
@@ -33,4 +33,4 @@ confluent local services kafka start
 ##################################################
 
 SAVE_CONFIGS_DIR=/tmp/ssl_configs
-# restore_configs $CONFLUENT_HOME/etc/kafka/$FILENAME $ORIGINAL_CONFIGS_DIR/$FILENAME $SAVE_CONFIGS_DIR/${FILENAME}.ssl
+restore_configs $CONFLUENT_HOME/etc/kafka/$FILENAME $ORIGINAL_CONFIGS_DIR/$FILENAME $SAVE_CONFIGS_DIR/${FILENAME}.ssl

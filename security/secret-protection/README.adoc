@@ -1,5 +1,0 @@
-= Secret Protection
-
-Confluent's Secret Protection feature encrypts secrets in configuration files.
-Instead of storing passwords or other sensitive data as cleartext, Secret Protection encrypts it within the configuration file itself.
-
