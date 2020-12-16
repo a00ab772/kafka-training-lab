@@ -1,29 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad30739f-df2c-476d-b11f-5b537ee68c27" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../ccloud/beginner-cloud/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../ccloud/beginner-cloud/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clickstream/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/clickstream-analysis-dashboard.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/clickstream-analysis-dashboard.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/elastic-dynamic-template.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/elastic-dynamic-template.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/ksql-tables-to-grafana.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/ksql/ksql-clickstream-demo/demo/ksql-tables-to-grafana.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clickstream/sessionize-data.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/sessionize-data.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../clickstream/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../clickstream/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../kubernetes/gke-base/Makefile-impl" beforeDir="false" afterPath="$PROJECT_DIR$/../kubernetes/gke-base/Makefile-impl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../microservices-orders/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../microservices-orders/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../multi-datacenter/read-topics.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/read-topics.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../multi-datacenter/start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/start.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2_topic2.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc1_to_dc2_topic2.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc2_to_dc1.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../multi-datacenter/submit_replicator_dc2_to_dc1.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../music/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../music/statements.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../music/statements.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbac/scripts/enable-rbac-connect.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/enable-rbac-connect.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbac/scripts/enable-rbac-ksqldb-server.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/enable-rbac-ksqldb-server.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbac/scripts/enable-rbac-rest-proxy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/enable-rbac-rest-proxy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rbac/scripts/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/rbac/scripts/run.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/secret-protection/demo-secret-protection.sh" beforeDir="false" afterPath="$PROJECT_DIR$/secret-protection/demo-secret-protection.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../utils/helper.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../utils/helper.sh" afterDir="false" />
+    <list default="true" id="ca342117-a5bd-4c93-b869-3e06b00138b0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/security/ssl/scripts/helper.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/.idea/dbnavigator.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/.idea/security.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/acls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/ssl/scripts/init.sh" beforeDir="false" afterPath="$PROJECT_DIR$/security/ssl/scripts/init.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/ssl/scripts/run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/security/ssl/scripts/run.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/utils/ccloud_library.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/utils/grafana_version.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/utils/helper.sh" beforeDir="false" afterPath="$PROJECT_DIR$/security/utils/helper.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/utils/table.locations" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/utils/table.locations.cloud.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/utils/table.locations.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/startKafkaInDocker.sh" beforeDir="false" afterPath="$PROJECT_DIR$/startKafkaInDocker.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/startLocalConfluent.sh" beforeDir="false" afterPath="$PROJECT_DIR$/startLocalConfluent.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,12 +31,19 @@
     <option name="done" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1iRVWNU2waj0dvU9cIPMEF1pbAv" />
+  <component name="ProjectId" id="1lgHSL4Gblab8jXpDyeHMjZHV8O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -48,11 +52,23 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/security/utils" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/security/utils" />
+      <recent name="$PROJECT_DIR$/security/ssl/scripts" />
+      <recent name="$PROJECT_DIR$/security/ssl/delta_configs" />
+      <recent name="$PROJECT_DIR$/security/ssl" />
+      <recent name="$PROJECT_DIR$/security/rbac/delta_configs" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/security/ssl/scripts" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Application" factoryName="Application">
@@ -145,27 +161,41 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ad30739f-df2c-476d-b11f-5b537ee68c27" name="Default Changelist" comment="" />
-      <created>1601870422067</created>
+      <changelist id="ca342117-a5bd-4c93-b869-3e06b00138b0" name="Default Changelist" comment="" />
+      <created>1608011812860</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601870422067</updated>
+      <updated>1608011812860</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="586" y="111" key="FileChooserDialogImpl" timestamp="1601974082991">
+    <state x="536" y="333" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1608096514296">
       <screen x="0" y="33" width="1920" height="1047" />
     </state>
-    <state x="586" y="111" key="FileChooserDialogImpl/0.33.1920.1047@0.33.1920.1047" timestamp="1601974082991" />
-    <state x="355" y="33" width="1203" height="999" key="find.popup" timestamp="1603098438597">
+    <state x="536" y="327" key="#com.intellij.fileTypes.FileTypeChooser/0.24.1920.1056@0.24.1920.1056" timestamp="1608047804299" />
+    <state x="536" y="333" key="#com.intellij.fileTypes.FileTypeChooser/0.33.1920.1047@0.33.1920.1047" timestamp="1608096514296" />
+    <state x="695" y="247" width="941" height="596" key="FileChooserDialogImpl" timestamp="1608094265569">
+      <screen x="0" y="33" width="1920" height="1047" />
+    </state>
+    <state x="695" y="240" width="941" height="596" key="FileChooserDialogImpl/0.24.1920.1056@0.24.1920.1056" timestamp="1608037917122" />
+    <state x="695" y="247" key="FileChooserDialogImpl/0.33.1920.1047@0.33.1920.1047" timestamp="1608094265569" />
+    <state x="545" y="328" key="com.intellij.ide.util.TipDialog" timestamp="1608050283936">
       <screen x="0" y="24" width="1920" height="1056" />
     </state>
-    <state x="355" y="33" width="1203" height="999" key="find.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1603098438597" />
-    <state x="355" y="33" width="1203" height="990" key="find.popup/0.33.1920.1047@0.33.1920.1047" timestamp="1603086906382" />
-    <state x="368" y="226" key="run.anything.popup" timestamp="1601957906160">
+    <state x="545" y="328" key="com.intellij.ide.util.TipDialog/0.24.1920.1056@0.24.1920.1056" timestamp="1608050283936" />
+    <state x="431" y="144" width="1215" height="796" key="find.popup" timestamp="1608096210982">
       <screen x="0" y="33" width="1920" height="1047" />
     </state>
-    <state x="368" y="226" key="run.anything.popup/0.33.1920.1047@0.33.1920.1047" timestamp="1601957906160" />
+    <state x="431" y="136" width="1215" height="803" key="find.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1608027904098" />
+    <state x="431" y="144" width="1215" height="796" key="find.popup/0.33.1920.1047@0.33.1920.1047" timestamp="1608096210982" />
+    <state x="540" y="243" key="run.anything.popup" timestamp="1608048532285">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="540" y="243" key="run.anything.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1608048532285" />
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup" timestamp="1608051953702">
+      <screen x="0" y="24" width="1920" height="1056" />
+    </state>
+    <state x="539" y="45" width="840" height="1034" key="search.everywhere.popup/0.24.1920.1056@0.24.1920.1056" timestamp="1608051953702" />
   </component>
 </project>

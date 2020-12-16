@@ -1,6 +1,6 @@
 #!/bin/bash
 
-docker-compose -f /usr/local/intellij/ProyectosIntelliJ/testkafkaconnect/code/docker-compose.yml stop
+docker-compose -f ./KafkaStreamsExercises/testkafkaconnect/code/docker-compose.yml stop
 export CONFLUENT_HOME=~/Downloads/confluent-6.0.0/
 
 cd ./security/ssl/scripts

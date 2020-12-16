@@ -13,7 +13,7 @@ check_jq || exit 1
 ##################################################
 
 mkdir -p /tmp/original_configs
-mkdir -p /tmp/rbac_configs
+mkdir -p /tmp/ssl_configs
 
 ./create_login_properties.py
 

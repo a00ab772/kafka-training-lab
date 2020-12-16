@@ -8,7 +8,7 @@ export CONFLUENT_HOME=~/Downloads/confluent-6.0.0
 # Overview
 ################################################################################
 #
-# Role Based Access Control (RBAC) functionality with the new Confluent CLI
+# SSL authentication and encryption with Confluent
 #
 # Usage:
 #
