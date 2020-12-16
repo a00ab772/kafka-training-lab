@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  # Nuestro cluster de Kafka
+  # Our Kafka cluster
   kafka-cluster:
     image: landoop/fast-data-dev:cp3.3.0
     environment:

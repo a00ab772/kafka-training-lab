@@ -8,24 +8,24 @@ kafka-topics --describe --topic demo-2-distributed --zookeeper 127.0.0.1:2181
 
 echo """
 
-3) Ve a http://formacionkafka:3030 -> Connect UI
+3) Open this url http://formacionkafka:3030 -> Go to the Connect UI tab
 
-4) Crea un conector nuevo -> File Source
+4) Create a new connector of type 'File Source'
 
-5) Pega la siguiente configuracion:
+5) Paste the following config in the configuration text box:
 """
 
 cat /tutorial/source/demo-2/file-stream-demo-distributed.properties
 
 echo """
 
-6) A continuacion, escribe el comando "exit" 
+6) Next, write the 'exit' command
 
 exit
 
-7) y lanza el siguiente comando:
+7) finally, run the following command:
 
-./arrancaFilestreamSourceConnectorDistribuido_2.sh
+./startFilestreamSourceConnectorDistributed_2.sh
 
 """
 

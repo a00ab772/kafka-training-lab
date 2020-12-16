@@ -5,15 +5,16 @@ kafka-topics --create --topic demo-1-standalone \
 
 kafka-topics --describe --topic demo-1-standalone --zookeeper 127.0.0.1:2181
 
-# El primer parámetro ha de ser la configuración del Worker
-# Los siguientes parámetros pueden ser tantos conectores como queramos ejecutar en el
-# Kafka Connect standalone cluster
+# First parameter must be the worker configuration
+# Next parameters can be as many as connectors we want to run
+# in our Kafka Connect standalone cluster
 connect-standalone -daemon /tutorial/source/demo-1/worker.properties \
   /tutorial/source/demo-1/file-stream-demo-standalone.properties
 
+sleep 15
 
-echo -e "log linea 1\nlog linea 2\nlog linea 3" >> /tmp/demo-file.txt
-echo -e "log linea 4\nlog linea 5\nlog linea 6" >> /tmp/demo-file.txt
+echo -e "log line 1\nlog line 2\nlog line 3" >> /tmp/demo-file.txt
+echo -e "log line 4\nlog line 5\nlog line 6" >> /tmp/demo-file.txt
 
 kafka-console-consumer --bootstrap-server localhost:9092 --topic demo-1-standalone --from-beginning
 
