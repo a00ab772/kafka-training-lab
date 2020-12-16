@@ -466,7 +466,7 @@ Available stateful transformations in the DSL include:
 This diagram shows the relationships between the stateful transformations:
 
 https://docs.confluent.io/current/_images/streams-stateful_operations.png
-![streams operations](images/streams-stateful_operations.png)
+![streams operations](KafkaStreamsExercises/kafka-streams-examples/images/streams-stateful_operations.png)
 
 <a name="wordcount-example"/>
 
