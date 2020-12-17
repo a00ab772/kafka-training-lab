@@ -2,9 +2,10 @@
 
 echo """
 
-CONSULTAR EN POSTGRES
-=====================
-Puedes ejecutar esta secuencia de comandos:
+RUN QUERIES IN POSTGRES
+=======================
+
+Run this sequence of commands:
 
 psql -U postgres
 
