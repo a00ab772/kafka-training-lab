@@ -2,7 +2,7 @@
 
 export CONFLUENT_HOME=~/Downloads/confluent-6.0.0/
 
-TopicList="producer-consumer,alquiler-coches-entrada,alquiler-coches-salida,bank-balance-agg,bank-balance-exactly-once,bank-transactions,clientes-y-coches,kafka-security-topic,kafka-spring-cloud,kafka-spring-cloud-json,monitoring,streams-plaintext-input,streams-wordcount-output"
+TopicList="producer-consumer,rental-car-input,rental-car-output,bank-balance-agg,bank-balance-exactly-once,bank-transactions,customers-and-cars,kafka-security-topic,kafka-spring-cloud,kafka-spring-cloud-json,monitoring,streams-plaintext-input,streams-wordcount-output"
 
 IFS=,
 for topic in $TopicList;

@@ -1,4 +1,4 @@
-package com.training.kafka.streams.O1_conceptosbasicos;
+package com.training.kafka.streams.O2_transformations;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.Set;
 
-public class ConsumidorWordCount {
+public class RentalCarResultsConsumer {
     public static void main(String[] args){
 
         // Configuración del consumidor de Kafka
@@ -41,7 +41,7 @@ public class ConsumidorWordCount {
         // No hacer este cambio en producción
         props.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG, 100);
 
-        String topico = "streams-wordcount-output";
+        String topico = "rental-car-output";
 
         // Creamos el consumidor
         KafkaConsumer<String, String> consumidor = new KafkaConsumer<String, String>(props);

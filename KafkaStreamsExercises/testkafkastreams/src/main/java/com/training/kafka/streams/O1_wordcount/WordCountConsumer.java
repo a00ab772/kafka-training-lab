@@ -1,4 +1,4 @@
-package com.training.kafka.streams.O2_transformaciones;
+package com.training.kafka.streams.O1_wordcount;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.Set;
 
-public class ConsumidorAlquilersDeCoches {
+public class WordCountConsumer {
     public static void main(String[] args){
 
         // Configuración del consumidor de Kafka
@@ -23,7 +23,7 @@ public class ConsumidorAlquilersDeCoches {
         props.put("heartbeat.interval.ms", 3000);
         props.put("max.partition.fetch.bytes", 1048576);
         props.put("session.timeout.ms", 30000);
-        props.put("auto.offset.reset", "latest");
+        props.put("auto.offset.reset", "earliest");
         props.put("connections.max.idle.ms", 540000);
         props.put("enable.auto.commit", true);
         props.put("exclude.internal.topics", true);
@@ -41,7 +41,7 @@ public class ConsumidorAlquilersDeCoches {
         // No hacer este cambio en producción
         props.put(StreamsConfig.COMMIT_INTERVAL_MS_CONFIG, 100);
 
-        String topico = "alquiler-coches-salida";
+        String topico = "streams-wordcount-output";
 
         // Creamos el consumidor
         KafkaConsumer<String, String> consumidor = new KafkaConsumer<String, String>(props);
