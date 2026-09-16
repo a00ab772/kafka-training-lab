@@ -3,6 +3,7 @@ package goldencars.consumers
 import goldencars.functions
 import goldencars.typesafeconfig.TypeSafeConfig
 import org.apache.kafka.common.serialization.StringDeserializer
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark._
 import org.apache.spark.sql.{SaveMode, SparkSession}
 import org.apache.spark.streaming._
@@ -18,8 +19,8 @@ object SparkStreamKafkaConsumer {
 
   def main(args: Array[String]): Unit = {
     // Desactivamos logs de línea de comando
-    // Logger.getLogger("org").setLevel(Level.OFF)
-    // Logger.getLogger("akka").setLevel(Level.OFF)
+    Logger.getLogger("org").setLevel(Level.OFF)
+    Logger.getLogger("akka").setLevel(Level.OFF)
 
     val conf = new SparkConf()
       .setAppName(typesafeconf.applicationName)

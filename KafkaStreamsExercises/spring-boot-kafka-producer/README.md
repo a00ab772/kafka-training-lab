@@ -5,12 +5,12 @@ This Project covers how to use Spring Boot with Spring Kafka to Publish JSON/Str
 ## Start Kafka
 
 ```bash
-kafka-training-lab ~ $ ./startLocalConfluent.sh 
+spring-boot-kafka-producer>  .\scripts\startLocalConfluent.sh 
 ```
 
 ## Create Kafka Topic
 ```bash
-kafka-training-lab ~ $ KafkaConsoleExercises/createTopics.sh
+spring-boot-kafka-producer>  .\scripts\KafkaConsoleExercises/createTopics.sh
 Created topic "kafka-spring-cloud".
 ```
 

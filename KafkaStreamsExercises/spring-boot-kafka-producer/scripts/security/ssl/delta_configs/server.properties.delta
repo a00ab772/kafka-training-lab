@@ -1,0 +1,17 @@
+# TLS (SSL) Kafka broker setup
+listeners=PLAINTEXT://0.0.0.0:9092,SSL://0.0.0.0:9093
+
+advertised.listeners=PLAINTEXT://localhost:9092,SSL://localhost:9093
+
+# ssl.client.auth=required
+ssl.client.auth=none
+listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL
+ssl.endpoint.identification.algorithm=
+# security.protocol=SSL
+
+ssl.keystore.location=/tmp/kafka.server.keystore.jks
+ssl.keystore.password=test1234
+ssl.key.password=test1234
+ssl.truststore.location=/tmp/kafka.server.truststore.jks
+ssl.truststore.password=test1234
+

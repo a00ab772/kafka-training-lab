@@ -1,6 +1,6 @@
 # Start your Kafka cluster
 
-See the [Kafka Training.pptx](https://teams.microsoft.com/l/file/EE74F0AF-CA22-4794-A5AF-3AEBA843954D?tenantId=189de737-c93a-4f5a-8b68-6f4ca9941912&fileType=pptx&objectUrl=https%3A%2F%2Fhclo365.sharepoint.com%2Fsites%2FKnowledgebits%2FShared%20Documents%2FGeneral%2FTraining%20sessions%2FKafka%20Training.pptx&baseUrl=https%3A%2F%2Fhclo365.sharepoint.com%2Fsites%2FKnowledgebits&serviceName=teams&threadId=19:edc5e572b69341ca9e0b32bae84c5c40@thread.tacv2&groupId=481b5866-825e-4d13-8784-154cac25be64) for more details:
+See the Kafka Training.pptx for more details:
 
 ```shell script
 $ ./startLocalConfluent.sh 

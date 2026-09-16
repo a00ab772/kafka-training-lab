@@ -5,16 +5,16 @@ This Project covers how to use Spring Boot with Spring Kafka to Consume JSON/Str
 ## Start Kafka
 
 ```bash
-kafka-training-lab ~ $ ./startLocalConfluent.sh 
+spring-boot-kafka-consumer>  .\scripts\startLocalConfluent.sh
 ```
 
 ## Create Kafka Topic
 ```bash
-kafka-training-lab ~ $ KafkaConsoleExercises/createTopics.sh
+spring-boot-kafka-consumer> .\scripts\createTopics.sh
 Created topic "kafka-spring-cloud".
 ```
 
-## Consume from the Kafka Topic via Console
+## Consume from the Kafka Topic via Kafka Console cli
 
 - `bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic kafka-spring-cloud --from-beginning`
 
