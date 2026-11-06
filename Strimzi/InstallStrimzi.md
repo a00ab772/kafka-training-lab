@@ -1,16 +1,14 @@
-#INSTALL VIRTUALBOX
-#==================
+# INSTALL VIRTUALBOX
 
 https://download.virtualbox.org/virtualbox/7.1.6/VirtualBox-7.1.6-167084-Win.exe
 
 
-#INSTALL MINIKUBE CLI
-#====================
+# INSTALL MINIKUBE CLI
+
 
 https://minikube.sigs.k8s.io/docs/start/?arch=%2Fwindows%2Fx86-64%2Fstable%2F.exe+download
 
-#INSTALL MINIKUBE CLUSTER
-#========================
+# INSTALL MINIKUBE CLUSTER
 
 ```bash
 User@MSI MINGW64 ~
